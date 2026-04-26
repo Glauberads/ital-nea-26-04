@@ -16,10 +16,13 @@ const AboutSection = () => {
       .eq("id", true)
       .single()
       .then(({ data }) => {
-        const url = (data as any)?.about_logo_url;
-        if (url) setItalineaLogo(url);
-        const w = (data as any)?.about_logo_white;
-        if (typeof w === "boolean") setWhite(w);
+        if (data) {
+          const aboutUrl = (data as any).about_logo_url;
+          if (aboutUrl) setItalineaLogo(aboutUrl);
+          
+          const w = (data as any).about_logo_white;
+          if (typeof w === "boolean") setWhite(w);
+        }
       });
   }, []);
 
