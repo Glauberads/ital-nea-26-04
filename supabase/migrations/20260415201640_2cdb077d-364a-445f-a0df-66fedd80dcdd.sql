@@ -1,0 +1,1 @@
+ALTER TABLE public.configuracoes ADD COLUMN maps_embed_url text DEFAULT '';

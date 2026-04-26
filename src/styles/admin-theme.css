@@ -1,0 +1,345 @@
+/* ============================================================
+   ADMIN FUTURISTIC / CYBERPUNK THEME
+   Scoped entirely under .admin-futuristic-theme
+   Does NOT affect the Landing Page.
+   ============================================================ */
+
+/* ---------- Base background ---------- */
+.admin-futuristic-theme {
+  background: #050507;
+  color: #ffffff;
+}
+
+/* ---------- Sidebar ---------- */
+.admin-futuristic-theme .admin-sidebar {
+  background: rgba(8, 10, 18, 0.92);
+  border-right: 1px solid rgba(0, 242, 254, 0.15);
+  box-shadow: inset -1px 0 20px rgba(0, 242, 254, 0.04);
+}
+
+.admin-futuristic-theme .admin-sidebar .sidebar-brand {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(0, 242, 254, 0.4);
+}
+
+.admin-futuristic-theme .admin-sidebar .sidebar-subtitle {
+  color: rgba(0, 242, 254, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+.admin-futuristic-theme .admin-sidebar .sidebar-email {
+  color: rgba(0, 242, 254, 0.5);
+}
+
+/* Nav items */
+.admin-futuristic-theme .admin-sidebar .nav-item {
+  color: rgba(255, 255, 255, 0.55);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.admin-futuristic-theme .admin-sidebar .nav-item:hover {
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.06);
+  border-color: rgba(0, 242, 254, 0.15);
+}
+
+.admin-futuristic-theme .admin-sidebar .nav-item.active {
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.1);
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.12);
+}
+
+.admin-futuristic-theme .admin-sidebar .nav-item.active .nav-icon {
+  filter: drop-shadow(0 0 4px rgba(0, 242, 254, 0.6));
+}
+
+.admin-futuristic-theme .admin-sidebar .signout-btn {
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease;
+}
+
+.admin-futuristic-theme .admin-sidebar .signout-btn:hover {
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 68, 68, 0.4);
+}
+
+/* ---------- Mobile header ---------- */
+.admin-futuristic-theme .admin-mobile-header {
+  background: rgba(8, 10, 18, 0.95);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.12);
+}
+
+.admin-futuristic-theme .admin-mobile-header span {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(0, 242, 254, 0.3);
+}
+
+/* ---------- Main content area ---------- */
+.admin-futuristic-theme .admin-main {
+  background: #050507;
+}
+
+/* ---------- Page titles ---------- */
+.admin-futuristic-theme h2 {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(0, 242, 254, 0.25);
+}
+
+/* ---------- Cards (KPI, content) ---------- */
+.admin-futuristic-theme [data-slot="card"],
+.admin-futuristic-theme .card-cyber {
+  background: rgba(10, 14, 26, 0.85) !important;
+  border: 1px solid rgba(0, 242, 254, 0.12) !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(0, 242, 254, 0);
+}
+
+.admin-futuristic-theme [data-slot="card"]:hover,
+.admin-futuristic-theme .card-cyber:hover {
+  border-color: rgba(0, 242, 254, 0.3) !important;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.1), 0 0 40px rgba(0, 242, 254, 0.06), inset 0 0 30px rgba(0, 242, 254, 0.03) !important;
+}
+
+/* Card titles & descriptions */
+.admin-futuristic-theme [data-slot="card-title"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.admin-futuristic-theme [data-slot="card-description"] {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* KPI values — neon glow effect */
+.admin-futuristic-theme .kpi-value {
+  color: #00f2fe;
+  font-weight: 800;
+  -webkit-text-stroke: 1px rgba(0, 242, 254, 0.6);
+  text-shadow:
+    0 0 7px rgba(0, 242, 254, 0.7),
+    0 0 20px rgba(0, 242, 254, 0.4),
+    0 0 40px rgba(0, 242, 254, 0.2),
+    0 0 80px rgba(0, 242, 254, 0.1);
+}
+
+/* KPI icon colors override */
+.admin-futuristic-theme .kpi-icon-cyan {
+  color: #00f2fe !important;
+  filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.5));
+}
+
+.admin-futuristic-theme .kpi-icon-green {
+  color: #39ff14 !important;
+  filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.5));
+}
+
+.admin-futuristic-theme .kpi-icon-purple {
+  color: #d16aff !important;
+  filter: drop-shadow(0 0 6px rgba(209, 106, 255, 0.5));
+}
+
+.admin-futuristic-theme .kpi-icon-orange {
+  color: #ff6b00 !important;
+  filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.5));
+}
+
+/* Magenta icon + pulse animation */
+.admin-futuristic-theme .kpi-icon-magenta {
+  color: #d16aff !important;
+  filter: drop-shadow(0 0 6px rgba(209, 106, 255, 0.6));
+}
+
+.admin-futuristic-theme .kpi-icon-pulse {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px rgba(209, 106, 255, 0.6)); }
+  50% { opacity: 0.6; filter: drop-shadow(0 0 12px rgba(209, 106, 255, 0.9)); }
+}
+
+/* Conversion card — magenta glow border */
+.admin-futuristic-theme .kpi-card-conversion {
+  border: 1px solid rgba(209, 106, 255, 0.35) !important;
+  box-shadow: 0 0 15px rgba(209, 106, 255, 0.12), 0 0 30px rgba(209, 106, 255, 0.06) !important;
+}
+
+.admin-futuristic-theme .kpi-card-conversion:hover {
+  border-color: rgba(209, 106, 255, 0.5) !important;
+  box-shadow: 0 0 25px rgba(209, 106, 255, 0.2), 0 0 50px rgba(209, 106, 255, 0.1) !important;
+}
+
+/* Conversion value — magenta neon */
+.admin-futuristic-theme .kpi-value-conversion {
+  color: #d16aff !important;
+  -webkit-text-stroke: 1px rgba(209, 106, 255, 0.6);
+  text-shadow:
+    0 0 7px rgba(209, 106, 255, 0.7),
+    0 0 20px rgba(209, 106, 255, 0.4),
+    0 0 40px rgba(209, 106, 255, 0.2),
+    0 0 80px rgba(209, 106, 255, 0.1);
+}
+
+/* ---------- Tables ---------- */
+.admin-futuristic-theme table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.admin-futuristic-theme thead tr {
+  background: rgba(0, 242, 254, 0.04);
+}
+
+.admin-futuristic-theme th {
+  color: rgba(0, 242, 254, 0.7) !important;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 242, 254, 0.15) !important;
+}
+
+.admin-futuristic-theme tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.15s ease;
+}
+
+.admin-futuristic-theme tbody tr:hover {
+  background: rgba(0, 242, 254, 0.03);
+}
+
+.admin-futuristic-theme td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+/* ---------- Buttons ---------- */
+.admin-futuristic-theme .btn-cyber-primary {
+  background: linear-gradient(135deg, #ff6b00, #ff8533) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.admin-futuristic-theme .btn-cyber-primary:hover {
+  box-shadow: 0 0 25px rgba(255, 107, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.admin-futuristic-theme button[data-variant="outline"],
+.admin-futuristic-theme [data-slot="button"] {
+  border-color: rgba(0, 242, 254, 0.2) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.2s ease;
+}
+
+.admin-futuristic-theme button[data-variant="outline"]:hover,
+.admin-futuristic-theme [data-slot="button"]:hover {
+  border-color: rgba(0, 242, 254, 0.4) !important;
+  background: rgba(0, 242, 254, 0.06) !important;
+  color: #00f2fe !important;
+}
+
+/* ---------- Inputs ---------- */
+.admin-futuristic-theme input,
+.admin-futuristic-theme textarea,
+.admin-futuristic-theme select,
+.admin-futuristic-theme [data-slot="select-trigger"] {
+  background: rgba(10, 14, 26, 0.8) !important;
+  border: 1px solid rgba(0, 242, 254, 0.15) !important;
+  color: #ffffff !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-futuristic-theme input:focus,
+.admin-futuristic-theme textarea:focus,
+.admin-futuristic-theme input:focus-visible,
+.admin-futuristic-theme textarea:focus-visible {
+  border-color: rgba(0, 242, 254, 0.5) !important;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.1) !important;
+  outline: none !important;
+  ring: none !important;
+}
+
+.admin-futuristic-theme input::placeholder,
+.admin-futuristic-theme textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ---------- Labels ---------- */
+.admin-futuristic-theme label {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Switch ---------- */
+.admin-futuristic-theme [data-slot="switch"][data-state="checked"] {
+  background: #39ff14 !important;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+/* ---------- Skeleton ---------- */
+.admin-futuristic-theme [data-slot="skeleton"] {
+  background: rgba(0, 242, 254, 0.06) !important;
+}
+
+/* ---------- Scrollbar ---------- */
+.admin-futuristic-theme ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-futuristic-theme ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-futuristic-theme ::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.15);
+  border-radius: 3px;
+}
+
+.admin-futuristic-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.3);
+}
+
+/* ---------- Toast override inside admin ---------- */
+.admin-futuristic-theme [data-sonner-toaster] {
+  --normal-bg: rgba(10, 14, 26, 0.95);
+  --normal-border: rgba(0, 242, 254, 0.2);
+  --normal-text: #ffffff;
+}
+
+/* ---------- Dividers & borders ---------- */
+.admin-futuristic-theme .border-zinc-800 {
+  border-color: rgba(0, 242, 254, 0.1) !important;
+}
+
+/* ---------- Text colors ---------- */
+.admin-futuristic-theme .text-zinc-100 {
+  color: #ffffff !important;
+}
+
+.admin-futuristic-theme .text-zinc-300 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.admin-futuristic-theme .text-zinc-400 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.admin-futuristic-theme .text-zinc-500 {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* ---------- Background overrides ---------- */
+.admin-futuristic-theme .bg-zinc-900 {
+  background: rgba(10, 14, 26, 0.85) !important;
+}
+
+.admin-futuristic-theme .bg-zinc-950 {
+  background: #050507 !important;
+}
