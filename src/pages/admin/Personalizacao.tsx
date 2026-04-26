@@ -11,6 +11,8 @@ import { Save, Loader2, Upload, Image as ImageIcon } from "lucide-react";
 interface PersonalizacaoConfig {
   header_logo_url: string;
   about_logo_url: string;
+  about_factory_url: string;
+  about_metta_logo_url: string;
   header_logo_white: boolean;
   about_logo_white: boolean;
   hero_headline: string;
@@ -21,6 +23,8 @@ interface PersonalizacaoConfig {
 const defaultConfig: PersonalizacaoConfig = {
   header_logo_url: "",
   about_logo_url: "",
+  about_factory_url: "",
+  about_metta_logo_url: "",
   header_logo_white: true,
   about_logo_white: false,
   hero_headline: "",
@@ -28,11 +32,20 @@ const defaultConfig: PersonalizacaoConfig = {
   hero_subtitle: "",
 };
 
+type UploadSlot = "header" | "about" | "factory" | "metta";
+
+const slotToField: Record<UploadSlot, keyof PersonalizacaoConfig> = {
+  header: "header_logo_url",
+  about: "about_logo_url",
+  factory: "about_factory_url",
+  metta: "about_metta_logo_url",
+};
+
 const Personalizacao = () => {
   const [config, setConfig] = useState<PersonalizacaoConfig>(defaultConfig);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [uploading, setUploading] = useState<"header" | "about" | null>(null);
+  const [uploading, setUploading] = useState<UploadSlot | null>(null);
 
   useEffect(() => {
     const load = async () => {
@@ -46,6 +59,8 @@ const Personalizacao = () => {
         setConfig({
           header_logo_url: (data as any).header_logo_url || "",
           about_logo_url: (data as any).about_logo_url || "",
+          about_factory_url: (data as any).about_factory_url || "",
+          about_metta_logo_url: (data as any).about_metta_logo_url || "",
           header_logo_white: (data as any).header_logo_white ?? true,
           about_logo_white: (data as any).about_logo_white ?? true,
           hero_headline: (data as any).hero_headline || "",
@@ -58,7 +73,7 @@ const Personalizacao = () => {
     load();
   }, []);
 
-  const uploadLogo = async (file: File, slot: "header" | "about") => {
+  const uploadLogo = async (file: File, slot: UploadSlot) => {
     setUploading(slot);
     try {
       const ext = file.name.split(".").pop();
@@ -70,9 +85,9 @@ const Personalizacao = () => {
       const { data: pub } = supabase.storage.from("logos").getPublicUrl(path);
       setConfig((c) => ({
         ...c,
-        [slot === "header" ? "header_logo_url" : "about_logo_url"]: pub.publicUrl,
+        [slotToField[slot]]: pub.publicUrl,
       }));
-      toast.success("Logo enviada! Clique em salvar para aplicar.");
+      toast.success("Imagem enviada! Clique em salvar para aplicar.");
     } catch (e: any) {
       toast.error("Erro no upload: " + e.message);
     } finally {
@@ -87,6 +102,8 @@ const Personalizacao = () => {
       .update({
         header_logo_url: config.header_logo_url,
         about_logo_url: config.about_logo_url,
+        about_factory_url: config.about_factory_url,
+        about_metta_logo_url: config.about_metta_logo_url,
         header_logo_white: config.header_logo_white,
         about_logo_white: config.about_logo_white,
         hero_headline: config.hero_headline,
@@ -111,18 +128,20 @@ const Personalizacao = () => {
     );
   }
 
-  const LogoUploader = ({
+  const ImageUploader = ({
     slot,
     label,
     url,
     white,
     onWhiteChange,
+    showWhiteToggle = true,
   }: {
-    slot: "header" | "about";
+    slot: UploadSlot;
     label: string;
     url: string;
-    white: boolean;
-    onWhiteChange: (v: boolean) => void;
+    white?: boolean;
+    onWhiteChange?: (v: boolean) => void;
+    showWhiteToggle?: boolean;
   }) => (
     <div className="space-y-3 p-4 rounded-lg border border-zinc-800 bg-zinc-900/40">
       <Label className="text-zinc-200 font-semibold">{label}</Label>
@@ -144,10 +163,12 @@ const Personalizacao = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-between">
-        <span className="text-sm text-zinc-400">Exibir em branco</span>
-        <Switch checked={white} onCheckedChange={onWhiteChange} />
-      </div>
+      {showWhiteToggle && onWhiteChange && (
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-zinc-400">Exibir em branco</span>
+          <Switch checked={white} onCheckedChange={onWhiteChange} />
+        </div>
+      )}
 
       <div className="flex gap-2">
         <Input
@@ -169,8 +190,7 @@ const Personalizacao = () => {
         onChange={(e) =>
           setConfig((c) => ({
             ...c,
-            [slot === "header" ? "header_logo_url" : "about_logo_url"]:
-              e.target.value,
+            [slotToField[slot]]: e.target.value,
           }))
         }
         placeholder="ou cole uma URL"
@@ -184,7 +204,7 @@ const Personalizacao = () => {
       <div>
         <h1 className="text-2xl font-bold text-zinc-100">Personalização</h1>
         <p className="text-zinc-400 text-sm">
-          Edite as logos e a headline principal do site.
+          Edite as logos, imagens e a headline principal do site.
         </p>
       </div>
 
@@ -195,7 +215,7 @@ const Personalizacao = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="grid md:grid-cols-2 gap-4">
-          <LogoUploader
+          <ImageUploader
             slot="header"
             label="Logo do Cabeçalho"
             url={config.header_logo_url}
@@ -204,7 +224,7 @@ const Personalizacao = () => {
               setConfig((c) => ({ ...c, header_logo_white: v }))
             }
           />
-          <LogoUploader
+          <ImageUploader
             slot="about"
             label="Logo Sobre Nós (Italínea)"
             url={config.about_logo_url}
@@ -212,6 +232,28 @@ const Personalizacao = () => {
             onWhiteChange={(v) =>
               setConfig((c) => ({ ...c, about_logo_white: v }))
             }
+          />
+        </CardContent>
+      </Card>
+
+      <Card className="bg-zinc-900 border-zinc-800">
+        <CardHeader>
+          <CardTitle className="text-zinc-100 flex items-center gap-2">
+            <ImageIcon className="w-5 h-5" /> Seção Sobre Nós
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="grid md:grid-cols-2 gap-4">
+          <ImageUploader
+            slot="factory"
+            label="Imagem da Fábrica / Showroom"
+            url={config.about_factory_url}
+            showWhiteToggle={false}
+          />
+          <ImageUploader
+            slot="metta"
+            label="Logo Metta Planejados"
+            url={config.about_metta_logo_url}
+            showWhiteToggle={false}
           />
         </CardContent>
       </Card>

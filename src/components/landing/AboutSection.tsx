@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
-import fabricaImg from "@/assets/fabrica.jpg";
-import logoMetta from "@/assets/logo-metta.png";
-import logoItalineaDefault from "@/assets/logo-italinea.png";
 
 const AboutSection = () => {
-  const [italineaLogo, setItalineaLogo] = useState<string>(logoItalineaDefault);
+  const [italineaLogo, setItalineaLogo] = useState<string>("");
+  const [mettaLogo, setMettaLogo] = useState<string>("");
+  const [factoryImg, setFactoryImg] = useState<string>("");
   const [white, setWhite] = useState<boolean>(true);
 
   useEffect(() => {
     supabase
       .from("configuracoes")
-      .select("about_logo_url, about_logo_white")
+      .select("about_logo_url, about_logo_white, about_factory_url, about_metta_logo_url")
       .eq("id", true)
       .single()
       .then(({ data }) => {
         if (data) {
-          const aboutUrl = (data as any).about_logo_url;
-          if (aboutUrl) setItalineaLogo(aboutUrl);
-          
-          const w = (data as any).about_logo_white;
-          if (typeof w === "boolean") setWhite(w);
+          const d = data as any;
+          if (d.about_logo_url) setItalineaLogo(d.about_logo_url);
+          if (d.about_factory_url) setFactoryImg(d.about_factory_url);
+          if (d.about_metta_logo_url) setMettaLogo(d.about_metta_logo_url);
+          if (typeof d.about_logo_white === "boolean") setWhite(d.about_logo_white);
         }
       });
   }, []);
@@ -37,12 +36,18 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             className="rounded-xl overflow-hidden"
           >
-            <img
-              src={fabricaImg}
-              alt="Showroom Metta Italínea"
-              className="w-full h-[400px] object-cover"
-              loading="lazy"
-            />
+            {factoryImg ? (
+              <img
+                src={factoryImg}
+                alt="Showroom Metta Italínea"
+                className="w-full h-[400px] object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div className="w-full h-[400px] bg-secondary flex items-center justify-center text-muted-foreground">
+                Imagem do Showroom
+              </div>
+            )}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 40 }}
@@ -53,12 +58,14 @@ const AboutSection = () => {
             <h3 className="text-sm uppercase tracking-widest text-gold mb-3">
               Sobre Nós
             </h3>
-            <img
-              src={italineaLogo}
-              alt="Italínea"
-              className={`h-12 w-auto mb-5 ${white ? "brightness-0 invert" : "brightness-0"}`}
-              loading="lazy"
-            />
+            {italineaLogo && (
+              <img
+                src={italineaLogo}
+                alt="Italínea"
+                className={`h-12 w-auto mb-5 ${white ? "brightness-0 invert" : "brightness-0"}`}
+                loading="lazy"
+              />
+            )}
             <p className="text-muted-foreground text-lg leading-relaxed">
               Somos a maior rede de móveis planejados da América Latina, especialistas em transformar projetos em vidas felizes.
             </p>
@@ -69,12 +76,14 @@ const AboutSection = () => {
               Contamos com um moderno parque fabril de 54 mil m², em expansão para 125 mil m², garantindo excelência em cada detalhe.
             </p>
 
-            <img
-              src={logoMetta}
-              alt="Metta Móveis Planejados"
-              className="h-16 w-auto mt-8"
-              loading="lazy"
-            />
+            {mettaLogo && (
+              <img
+                src={mettaLogo}
+                alt="Metta Móveis Planejados"
+                className="h-16 w-auto mt-8"
+                loading="lazy"
+              />
+            )}
 
             <p className="text-muted-foreground text-lg leading-relaxed mt-6">
               Há 16 anos, a Metta Planejados transforma ideias em projetos e projetos em sonhos realizados.
