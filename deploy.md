@@ -74,7 +74,7 @@ server {
 | Item | Detalhes |
 |---|---|
 | **Node.js** | 18+ (para build local) |
-| **Supabase** | Projeto configurado com as tabelas: `leads`, `configuracoes`, `user_roles`, `galeria_midia`, `opcoes_formulario` |
+| **Supabase** | Projeto configurado com as tabelas: `leads`, `configuracoes`, `user_roles`, `galeria_midia`, `opcoes_formulario`. **Nota:** A tabela `configuracoes` deve conter as colunas `about_factory_url`, `about_metta_logo_url` e `authority_logo_url`. |
 | **Migrações** | Executar todos os arquivos SQL em `src/config/` e `supabase/migrations/` |
 | **Credenciais** | URL e anon key configuradas em `src/config/supabase.ts` **antes** do build |
 | **Storage** | Bucket de imagens criado no Supabase para a galeria de mídia |
@@ -101,6 +101,19 @@ server {
 - [ ] Landing page carrega sem erros no console
 - [ ] Formulário de lead salva no Supabase e redireciona ao WhatsApp
 - [ ] Seções Showroom e Nossos Projetos exibem imagens do banco
+- [ ] Seções Sobre e Nossa Rede exibem imagens carregadas via admin
 - [ ] Painel admin (`/admin`) acessível apenas para usuários autenticados com role admin
 - [ ] Scripts de tracking (Google Ads, Facebook Pixel) injetados corretamente
 - [ ] Webhooks configurados e respondendo (se ativados)
+
+## Sincronização de Repositórios
+
+O projeto utiliza dois repositórios sincronizados:
+- `origin`: `https://github.com/Glauberads/ital-nea-26-04.git` (Repositório principal de desenvolvimento)
+- `vercel`: `https://github.com/Glauberads/italinea-260426.git` (Repositório conectado ao deploy da Vercel)
+
+Para garantir que o site ao vivo seja atualizado, realize o push para ambos:
+```bash
+git push origin main
+git push vercel main
+```

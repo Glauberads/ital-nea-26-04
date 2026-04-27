@@ -45,8 +45,8 @@ A aplicação estará disponível em `http://localhost:5173`.
 ### Landing Page (`/`)
 - ✅ Barra de benefícios fixa no topo
 - ✅ Hero section com CTA e scroll suave
-- ✅ Seção Sobre (história da empresa)
-- ✅ Seção Autoridade (franquia Italínea com logo oficial)
+- ✅ Seção Sobre — Imagem da fábrica e logos dinâmicas via admin
+- ✅ Seção Autoridade — Logo oficial da rede Italínea dinâmica via admin
 - ✅ **Nosso Showroom** — Grid dinâmico com imagens da categoria `showroom` (tabela `galeria_midia`), com título e descrição por imagem
 - ✅ **Nossos Projetos** — Grid dinâmico com imagens da categoria `projetos` (tabela `galeria_midia`), com título e descrição por imagem
 - ✅ Promoção com contador regressivo de 48h
@@ -69,7 +69,7 @@ A aplicação estará disponível em `http://localhost:5173`.
 - ✅ **Opções do Formulário** — CRUD completo de opções de interesse (tabela `opcoes_formulario`)
 - ✅ **Redes Sociais** — Gestão das URLs de Instagram, Facebook, YouTube, TikTok e Twitter exibidas no Footer
 - ✅ **Depoimentos** — CRUD de depoimentos exibidos no carrossel da landing (tabela `depoimentos`)
-- ✅ **Personalização** — Upload de logos (Header e Sobre) com opção de exibir em branco e edição da headline/subtítulo do Hero (bucket `logos` + tabela `configuracoes`)
+- ✅ **Personalização** — Gestão dinâmica de ativos de marca: upload de logos (Header, Sobre, Nossa Rede) e imagem da fábrica, com opção de exibir em branco e edição da headline/subtítulo do Hero (bucket `logos` + tabela `configuracoes`)
 - ✅ Scripts de tracking injetados dinamicamente via tabela `configuracoes`
 
 ### Autenticação & Segurança
@@ -134,7 +134,7 @@ src/
 
 - **Projeto:** `dxfbbjecztfeaiblelvt.supabase.co`
 - **Tabelas:** `leads`, `configuracoes`, `user_roles`, `admins`, `galeria_midia`, `opcoes_formulario`, `opcoes_local`, `depoimentos`
-- **Storage Buckets:** `logos` (público — logos do Header e Sobre)
+- **Storage Buckets:** `logos` (público — logos e ativos de marca), `galeria` (showroom e projetos)
 - **Auth:** Email/senha com proteção por role (função `is_admin()`)
 - **RLS:** Ativa em todas as tabelas
 
