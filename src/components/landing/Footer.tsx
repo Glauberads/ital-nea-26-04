@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Phone, Mail, Clock, MapPin, Instagram, Facebook, Youtube, Music2, Twitter } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import logoMetta from "@/assets/logo_branco.png";
 
 interface SocialLinks {
   instagram_url: string | null;
@@ -27,22 +26,34 @@ const Footer = () => {
     tiktok_url: null,
     twitter_url: null,
   });
+  const [footerLogoUrl, setFooterLogoUrl] = useState<string>("");
 
   useEffect(() => {
-    const fetchSocial = async () => {
+    const fetchConfig = async () => {
       const { data, error } = await supabase
         .from("configuracoes")
-        .select("instagram_url, facebook_url, youtube_url, tiktok_url, twitter_url")
+        .select("instagram_url, facebook_url, youtube_url, tiktok_url, twitter_url, footer_logo_url")
         .eq("id", true)
         .maybeSingle();
 
       if (error) {
-        console.error("[Footer] erro ao buscar redes sociais:", error);
+        console.error("[Footer] erro ao buscar configurações:", error);
         return;
       }
-      if (data) setSocial(data);
+      if (data) {
+        setSocial({
+          instagram_url: data.instagram_url,
+          facebook_url: data.facebook_url,
+          youtube_url: data.youtube_url,
+          tiktok_url: data.tiktok_url,
+          twitter_url: data.twitter_url,
+        });
+        if ((data as any).footer_logo_url) {
+          setFooterLogoUrl((data as any).footer_logo_url);
+        }
+      }
     };
-    fetchSocial();
+    fetchConfig();
   }, []);
 
   const socialItems = [
@@ -59,11 +70,17 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-10">
           {/* Logo */}
           <div>
-            <img
-              src={logoMetta}
-              alt="Metta Italínea - Móveis Planejados"
-              className="h-12 w-auto object-contain mb-2"
-            />
+            {footerLogoUrl ? (
+              <img
+                src={footerLogoUrl}
+                alt="Metta Italínea - Móveis Planejados"
+                className="h-12 w-auto object-contain mb-4"
+              />
+            ) : (
+              <div className="h-12 w-32 flex items-center justify-center border border-dashed border-zinc-700 text-zinc-500 text-xs mb-4">
+                Logo Rodapé
+              </div>
+            )}
             <p className="text-sm text-muted-foreground">
               Móveis planejados premium para transformar sua casa.
             </p>

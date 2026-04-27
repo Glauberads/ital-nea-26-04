@@ -14,6 +14,7 @@ interface PersonalizacaoConfig {
   about_factory_url: string;
   about_metta_logo_url: string;
   authority_logo_url: string;
+  footer_logo_url: string;
   header_logo_white: boolean;
   about_logo_white: boolean;
   hero_headline: string;
@@ -27,6 +28,7 @@ const defaultConfig: PersonalizacaoConfig = {
   about_factory_url: "",
   about_metta_logo_url: "",
   authority_logo_url: "",
+  footer_logo_url: "",
   header_logo_white: true,
   about_logo_white: false,
   hero_headline: "",
@@ -34,7 +36,7 @@ const defaultConfig: PersonalizacaoConfig = {
   hero_subtitle: "",
 };
 
-type UploadSlot = "header" | "about" | "factory" | "metta" | "authority";
+type UploadSlot = "header" | "about" | "factory" | "metta" | "authority" | "footer";
 
 const slotToField: Record<UploadSlot, keyof PersonalizacaoConfig> = {
   header: "header_logo_url",
@@ -42,6 +44,7 @@ const slotToField: Record<UploadSlot, keyof PersonalizacaoConfig> = {
   factory: "about_factory_url",
   metta: "about_metta_logo_url",
   authority: "authority_logo_url",
+  footer: "footer_logo_url",
 };
 
 const Personalizacao = () => {
@@ -65,6 +68,7 @@ const Personalizacao = () => {
           about_factory_url: (data as any).about_factory_url || "",
           about_metta_logo_url: (data as any).about_metta_logo_url || "",
           authority_logo_url: (data as any).authority_logo_url || "",
+          footer_logo_url: (data as any).footer_logo_url || "",
           header_logo_white: (data as any).header_logo_white ?? true,
           about_logo_white: (data as any).about_logo_white ?? true,
           hero_headline: (data as any).hero_headline || "",
@@ -109,6 +113,7 @@ const Personalizacao = () => {
         about_factory_url: config.about_factory_url,
         about_metta_logo_url: config.about_metta_logo_url,
         authority_logo_url: config.authority_logo_url,
+        footer_logo_url: config.footer_logo_url,
         header_logo_white: config.header_logo_white,
         about_logo_white: config.about_logo_white,
         hero_headline: config.hero_headline,
@@ -222,12 +227,18 @@ const Personalizacao = () => {
         <CardContent className="grid md:grid-cols-2 gap-4">
           <ImageUploader
             slot="header"
-            label="Logo do Cabeçalho"
+            label="Logo Header (Topo)"
             url={config.header_logo_url}
             white={config.header_logo_white}
             onWhiteChange={(v) =>
               setConfig((c) => ({ ...c, header_logo_white: v }))
             }
+          />
+          <ImageUploader
+            slot="footer"
+            label="Logo Footer (Rodapé)"
+            url={config.footer_logo_url}
+            showWhiteToggle={false}
           />
           <ImageUploader
             slot="about"
