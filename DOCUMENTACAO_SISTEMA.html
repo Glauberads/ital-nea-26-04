@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação Metta Italínea</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px; background: #f4f4f9; }
+        .page { background: white; padding: 60px; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #004a99; border-bottom: 2px solid #004a99; padding-bottom: 10px; margin-top: 40px; }
+        h2 { color: #b8860b; margin-top: 30px; }
+        h3 { color: #444; border-left: 4px solid #b8860b; padding-left: 15px; margin-top: 25px; }
+        pre { background: #2d2d2d; color: #ccc; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f8f8; font-weight: bold; }
+        tr:nth-child(even) { background-color: #fafafa; }
+        .toc { background: #f0f4f8; padding: 20px; border-radius: 5px; margin-bottom: 40px; }
+        .toc ul { list-style: none; padding-left: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { text-decoration: none; color: #004a99; }
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; border-radius: 0; padding: 0; }
+            h1, h2, h3 { page-break-after: avoid; }
+            pre, table { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>DOCUMENTAÇÃO COMPLETA — METTA ITALÍNEA</h1><br>*Gerado em: 26/04/2026, 22:53:37*<br>---<br>
+<h1>SEÇÃO: CONDIÇÕES INICIAIS E CONTEXTO</h1><br><h1>Contexto do Projeto — Metta Italínea</h1><br>#<h1>Objetivo</h1>
+Landing page de alta conversão + painel administrativo para a **Italínea by Salapronta**, loja de móveis planejados premium localizada em **Barueri e Região**. A página captura leads via formulário e WhatsApp (11 94005-9909), reforçando autoridade da marca (franquia Italínea, +40 anos de história). Todas as mensagens de WhatsApp incluem a tag <code>gads</code> para rastreamento de origem.<br>#<h1>Público-Alvo</h1>
+- Moradores de Barueri, Grande SP e região
+- Classes B e A, buscando móveis planejados para casa nova, reforma ou decoração
+- Perfil: 28–55 anos, valorizam qualidade, design e condições de pagamento facilitadas<br>#<h1>Funcionalidades Principais</h1><br>##<h1>Landing Page (<code>/</code>)</h1>
+<table>$0</table>
+|---|---|
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table><br>##<h1>Dashboard Admin (<code>/admin</code>)</h1>
+<table>$0</table>
+|---|---|
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table><br>##<h1>Autenticação & Segurança</h1>
+<table>$0</table>
+|---|---|
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table><br>#<h1>Tecnologias Utilizadas</h1>
+<table>$0</table>
+|---|---|
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table><br>#<h1>Estrutura de Pastas</h1>
+<pre>
+src/
+├── config/
+│   ├── supabase.ts               <h1>Cliente Supabase (único ponto de configuração)</h1>
+│   ├── supabase-schema.sql       <h1>SQL para criar tabela leads</h1>
+│   └── supabase-configuracoes.sql<h1>SQL para criar tabela configuracoes</h1>
+├── components/
+│   ├── admin/
+│   │   └── AdminLayout.tsx       <h1>Layout do painel com sidebar protegida</h1>
+│   ├── landing/                  <h1>Todas as seções da LP (13 componentes)</h1>
+│   └── TrackingScripts.tsx       <h1>Injeção dinâmica de scripts de tracking</h1>
+├── contexts/
+│   └── AuthContext.tsx           <h1>Provider de autenticação + verificação de role</h1>
+├── hooks/
+│   ├── useLeadForm.ts           <h1>Hook compartilhado para submissão de leads</h1>
+│   └── use-mobile.tsx           <h1>Detecção de dispositivo mobile</h1>
+├── integrations/supabase/
+│   ├── client.ts                <h1>Cliente Supabase (gerado pela integração)</h1>
+│   └── types.ts                 <h1>Tipos TypeScript gerados</h1>
+└── pages/
+    ├── Index.tsx                 <h1>Composição da landing page</h1>
+    ├── Login.tsx                 <h1>Página de login</h1>
+    ├── NotFound.tsx              <h1>Página 404</h1>
+    └── admin/
+        ├── Dashboard.tsx         <h1>Visão geral</h1>
+        ├── Leads.tsx             <h1>Tabela de leads</h1>
+        ├── Midia.tsx             <h1>Gestão de mídia (showroom + projetos)</h1>
+        ├── Marketing.tsx         <h1>Configurações de marketing + webhooks</h1>
+        ├── FormOptions.tsx       <h1>Opções do formulário de interesse</h1>
+        ├── RedesSociais.tsx      <h1>URLs das redes sociais (Footer)</h1>
+        ├── Depoimentos.tsx       <h1>CRUD de depoimentos</h1>
+        └── Personalizacao.tsx    <h1>Upload de logos + edição da headline do Hero</h1>
+</pre><br>#<h1>Integração Supabase</h1>
+- **Projeto:** <code>dxfbbjecztfeaiblelvt.supabase.co</code>
+- **Tabelas:** <code>leads</code>, <code>configuracoes</code> (incluindo campos dinâmicos <code>about_factory_url</code>, <code>about_metta_logo_url</code>, <code>authority_logo_url</code>, <code>footer_logo_url</code>), <code>user_roles</code>, <code>admins</code>, <code>galeria_midia</code>, <code>opcoes_formulario</code>, <code>opcoes_local</code>, <code>depoimentos</code>
+- **Auth:** Email/senha com role-based access (função <code>is_admin()</code> security definer)
+- **RLS:** Ativa em todas as tabelas
+- **Storage Buckets:** <code>galeria</code> (imagens do showroom/projetos) e <code>logos</code> (logos do Header/Sobre/Rede e imagem da fábrica — público)
+- O cliente é instanciado em <code>src/integrations/supabase/client.ts</code>
+- Para trocar de projeto/ambiente, veja <code>SUPABASE_MIGRATION.md</code><br>
+---<br>
+<h1>SEÇÃO: GUIA DE INICIALIZAÇÃO (README)</h1><br><h1>Metta Italínea — Landing Page + Admin</h1><br>Landing page de conversão para a **Italínea by Salapronta**, loja de móveis planejados premium em **Barueri e Região**. Captura leads via formulário + WhatsApp (11 94005-9909), com integração Supabase e identificação de origem via tag <code>gads</code>.<br>#<h1>Stack</h1><br>React 18 · TypeScript · Vite 5 · Tailwind CSS · Framer Motion · Supabase · shadcn/ui · React Query · React Hook Form · Zod · react-input-mask<br>#<h1>Instalação</h1><br><pre>bash
+<h1>1. Clone o repositório</h1>
+git clone <url-do-repo>
+cd <nome-do-repo><br><h1>2. Instale as dependências</h1>
+npm install<br><h1>3. Configure as variáveis de ambiente</h1>
+<h1>O arquivo .env já contém as credenciais do Supabase (URL e anon key)</h1><br><h1>4. Execute as migrações SQL no Supabase SQL Editor:</h1>
+<h1>   - src/config/supabase-schema.sql (tabela leads)</h1>
+<h1>   - src/config/supabase-configuracoes.sql (tabela configuracoes)</h1>
+<h1>   - Migração de roles (user_roles + RLS policies)</h1>
+<h1>   - Migrações em supabase/migrations/ (galeria_midia, opcoes_formulario, etc.)</h1><br><h1>5. Rode o servidor de desenvolvimento</h1>
+npm run dev
+</pre><br>A aplicação estará disponível em <code>http://localhost:5173</code>.<br>#<h1>Scripts Disponíveis</h1><br><table>$0</table>
+|---|---|
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table><br>#<h1>Funcionalidades</h1><br>##<h1>Landing Page (<code>/</code>)</h1>
+- ✅ Barra de benefícios fixa no topo
+- ✅ Hero section com CTA e scroll suave
+- ✅ Seção Sobre — Imagem da fábrica e logos dinâmicas via admin
+- ✅ Seção Autoridade — Logo oficial da rede Italínea dinâmica via admin
+- ✅ **Nosso Showroom** — Grid dinâmico com imagens da categoria <code>showroom</code> (tabela <code>galeria_midia</code>), com título e descrição por imagem
+- ✅ **Nossos Projetos** — Grid dinâmico com imagens da categoria <code>projetos</code> (tabela <code>galeria_midia</code>), com título e descrição por imagem
+- ✅ Promoção com contador regressivo de 48h
+- ✅ Depoimentos com avaliações 5 estrelas
+- ✅ Formulário principal com validação, máscara de telefone e opções de interesse dinâmicas (tabela <code>opcoes_formulario</code>)
+- ✅ Modal de qualificação de lead (<code>LeadQualificationModal</code>)
+- ✅ Exit intent popup (1× por sessão)
+- ✅ Botão WhatsApp flutuante + chat rápido (nº 11 94005-9909, tag <code>gads</code>)
+- ✅ Mapa de localização integrado (Google Maps embed configurável)
+- ✅ Captura de UTMs (<code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code>)
+- ✅ Design escuro e sofisticado, totalmente responsivo
+- ✅ Reforço de oferta (seção <code>OfferReinforcement</code>)<br>##<h1>Dashboard Admin (<code>/admin</code>)</h1>
+- ✅ Layout com sidebar dark mode premium (zinc-950 + destaques azul/dourado)
+- ✅ **Dashboard** — Visão geral com métricas e KPIs
+- ✅ **Leads** — Tabela de leads capturados com filtros
+- ✅ **Mídia** — Gestão de imagens do showroom e projetos (upload, edição de título/descrição, categorias, ordenação)
+- ✅ **Marketing** — Configurações de Google Ads, Facebook Pixel, GTM, webhooks e WhatsApp
+- ✅ **Opções do Formulário** — CRUD completo de opções de interesse (tabela <code>opcoes_formulario</code>)
+- ✅ **Redes Sociais** — Gestão das URLs de Instagram, Facebook, YouTube, TikTok e Twitter exibidas no Footer
+- ✅ **Depoimentos** — CRUD de depoimentos exibidos no carrossel da landing (tabela <code>depoimentos</code>)
+- ✅ **Personalização** — Gestão dinâmica de ativos de marca: upload de logos (Header, Sobre, Nossa Rede, Rodapé) e imagem da fábrica, com opção de exibir em branco e edição da headline/subtítulo do Hero (bucket <code>logos</code> + tabela <code>configuracoes</code>)
+- ✅ Scripts de tracking injetados dinamicamente via tabela <code>configuracoes</code><br>##<h1>Autenticação & Segurança</h1>
+- ✅ Login via Supabase Auth (<code>/login</code>)
+- ✅ Rotas <code>/admin/*</code> protegidas — apenas usuários autenticados com role <code>admin</code>
+- ✅ Sistema RBAC com tabela <code>user_roles</code> e enum <code>app_role</code>
+- ✅ Função <code>has_role()</code> (security definer) para RLS sem recursão
+- ✅ Políticas RLS nas tabelas <code>leads</code>, <code>configuracoes</code>, <code>galeria_midia</code> e <code>opcoes_formulario</code><br>#<h1>Estrutura de Pastas</h1><br><pre>
+src/
+├── components/
+│   ├── admin/
+│   │   └── AdminLayout.tsx       <h1>Layout do painel com sidebar</h1>
+│   ├── landing/
+│   │   ├── HeroSection.tsx       <h1>Hero com CTA</h1>
+│   │   ├── AboutSection.tsx      <h1>Sobre a empresa</h1>
+│   │   ├── AuthoritySection.tsx  <h1>Franquia Italínea</h1>
+│   │   ├── ShowroomSection.tsx   <h1>Galeria showroom (dinâmica)</h1>
+│   │   ├── GallerySection.tsx    <h1>Nossos Projetos (dinâmica)</h1>
+│   │   ├── PromotionSection.tsx  <h1>Promoção com timer</h1>
+│   │   ├── TestimonialsSection.tsx <h1>Depoimentos</h1>
+│   │   ├── OfferReinforcement.tsx <h1>Reforço de oferta</h1>
+│   │   ├── ContactForm.tsx       <h1>Formulário principal</h1>
+│   │   ├── MapSection.tsx        <h1>Mapa de localização</h1>
+│   │   ├── ExitIntentPopup.tsx   <h1>Popup de saída</h1>
+│   │   ├── LeadQualificationModal.tsx <h1>Modal de qualificação</h1>
+│   │   ├── FloatingElements.tsx  <h1>WhatsApp flutuante</h1>
+│   │   └── Footer.tsx            <h1>Rodapé</h1>
+│   ├── ui/                       <h1>Componentes shadcn/ui</h1>
+│   └── TrackingScripts.tsx       <h1>Scripts dinâmicos (Ads, Pixel)</h1>
+├── config/
+│   ├── supabase.ts               <h1>Cliente Supabase</h1>
+│   ├── supabase-schema.sql       <h1>SQL tabela leads</h1>
+│   └── supabase-configuracoes.sql<h1>SQL tabela configuracoes</h1>
+├── contexts/
+│   └── AuthContext.tsx            <h1>Contexto de autenticação + RBAC</h1>
+├── hooks/
+│   ├── useLeadForm.ts            <h1>Hook de submissão de leads</h1>
+│   └── use-mobile.tsx            <h1>Detecção de mobile</h1>
+├── integrations/supabase/
+│   ├── client.ts                 <h1>Cliente Supabase (gerado)</h1>
+│   └── types.ts                  <h1>Tipos TypeScript (gerado)</h1>
+└── pages/
+    ├── Index.tsx                  <h1>Landing page</h1>
+    ├── Login.tsx                  <h1>Página de login</h1>
+    ├── NotFound.tsx               <h1>Página 404</h1>
+    └── admin/
+        ├── Dashboard.tsx          <h1>Visão geral</h1>
+        ├── Leads.tsx              <h1>Gestão de leads</h1>
+        ├── Midia.tsx              <h1>Gestão de mídia (showroom + projetos)</h1>
+        ├── Marketing.tsx          <h1>Config. de marketing + webhooks</h1>
+        ├── FormOptions.tsx        <h1>Opções do formulário de interesse</h1>
+        ├── RedesSociais.tsx       <h1>URLs das redes sociais (Footer)</h1>
+        ├── Depoimentos.tsx        <h1>CRUD de depoimentos</h1>
+        └── Personalizacao.tsx     <h1>Upload de logos + edição da headline do Hero</h1>
+</pre><br>#<h1>Integração Supabase</h1><br>- **Projeto:** <code>dxfbbjecztfeaiblelvt.supabase.co</code>
+- **Tabelas:** <code>leads</code>, <code>configuracoes</code> (incluindo campos de imagem dinâmicos), <code>user_roles</code>, <code>admins</code>, <code>galeria_midia</code>, <code>opcoes_formulario</code>, <code>opcoes_local</code>, <code>depoimentos</code>
+- **Storage Buckets:** <code>logos</code> (público — logos e ativos de marca), <code>galeria</code> (showroom e projetos)
+- **Auth:** Email/senha com proteção por role (função <code>is_admin()</code>)
+- **RLS:** Ativa em todas as tabelas<br>Veja [SUPABASE_MIGRATION.md](./SUPABASE_MIGRATION.md) para trocar de projeto/ambiente.<br>#<h1>Deploy</h1><br>Veja [deploy.md](./deploy.md) para instruções detalhadas de implantação.<br>#<h1>Contribuição</h1><br>1. Crie uma branch: <code>git checkout -b feature/minha-feature</code>
+2. Faça suas alterações
+3. Commit: <code>git commit -m "feat: descrição"</code>
+4. Push: <code>git push origin feature/minha-feature</code>
+5. Abra um Pull Request<br>
+---<br>
+<h1>SEÇÃO: GUIA DE DEPLOY E OPERAÇÃO</h1><br><h1>Guia de Deploy — Metta Italínea</h1><br>#<h1>Opção 1: Lovable (Recomendado)</h1><br>A forma mais simples de publicar:<br>1. Clique no botão **Publish** no canto superior direito do editor Lovable
+2. Aguarde o build finalizar
+3. Sua aplicação estará disponível em <code>https://<projeto>.lovable.app</code>
+4. Para conectar um domínio próprio: **Project Settings → Domains**<br>> **Nota:** Alterações no frontend requerem clicar em "Update" no diálogo de publicação. Alterações no backend (edge functions, migrations) são deployadas automaticamente.<br>#<h1>Opção 2: Vercel / Netlify</h1><br>##<h1>Pré-requisitos</h1>
+- Node.js 18+
+- Conta na plataforma de hospedagem
+- Repositório no GitHub<br>##<h1>Passos</h1><br><pre>bash
+<h1>1. Build de produção</h1>
+npm run build<br><h1>2. O output estará em dist/</h1>
+</pre><br>**Vercel:**
+1. Importe o repositório GitHub em [vercel.com/new](https://vercel.com/new)
+2. Framework Preset: **Vite**
+3. Build Command: <code>npm run build</code>
+4. Output Directory: <code>dist</code>
+5. Adicione as variáveis de ambiente:
+   - <code>VITE_SUPABASE_URL</code> (se utilizada)
+   - <code>VITE_SUPABASE_ANON_KEY</code> (se utilizada)
+6. Clique em **Deploy**<br>> O arquivo <code>vercel.json</code> já está configurado com rewrites para SPA.<br>**Netlify:**
+1. Importe o repositório em [app.netlify.com](https://app.netlify.com)
+2. Build Command: <code>npm run build</code>
+3. Publish Directory: <code>dist</code>
+4. Adicione as variáveis de ambiente (mesmas do Vercel)
+5. Clique em **Deploy site**<br>#<h1>Opção 3: Hospedagem Estática (VPS / Apache / Nginx)</h1><br><pre>bash
+npm run build
+<h1>Copie o conteúdo de dist/ para o diretório público do servidor</h1>
+</pre><br>Exemplo Nginx:
+<pre>nginx
+server {
+    listen 80;
+    server_name meudominio.com.br;
+    root /var/www/metta/dist;
+    index index.html;<br>    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+</pre><br>> O <code>try_files</code> com fallback para <code>/index.html</code> é essencial para o roteamento SPA funcionar (evita 404 ao recarregar páginas).<br>#<h1>Pré-requisitos do Ambiente</h1><br><table>$0</table>
+|---|---|
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table>
+<table>$0</table><br>#<h1>Checklist Pré-Deploy</h1><br>- [ ] Credenciais Supabase configuradas em <code>src/config/supabase.ts</code>
+- [ ] Todas as tabelas criadas no Supabase (<code>leads</code>, <code>configuracoes</code>, <code>user_roles</code>, <code>galeria_midia</code>, <code>opcoes_formulario</code>)
+- [ ] Migrações em <code>supabase/migrations/</code> executadas
+- [ ] Função <code>has_role()</code> e enum <code>app_role</code> criados
+- [ ] Políticas RLS configuradas em todas as tabelas
+- [ ] Bucket de storage criado para imagens
+- [ ] Usuário admin configurado na tabela <code>user_roles</code>
+- [ ] Build local funciona sem erros (<code>npm run build</code>)
+- [ ] Formulários testados end-to-end (lead + redirecionamento WhatsApp)
+- [ ] Galeria de imagens (showroom e projetos) carregando corretamente
+- [ ] Opções de interesse do formulário configuradas via admin
+- [ ] Meta tags SEO revisadas em <code>index.html</code>
+- [ ] Domínio e SSL configurados na plataforma de hospedagem<br>#<h1>Checklist Pós-Deploy</h1><br>- [ ] Landing page carrega sem erros no console
+- [ ] Formulário de lead salva no Supabase e redireciona ao WhatsApp
+- [ ] Seções Showroom e Nossos Projetos exibem imagens do banco
+- [ ] Seções Sobre e Nossa Rede exibem imagens carregadas via admin
+- [ ] Painel admin (<code>/admin</code>) acessível apenas para usuários autenticados com role admin
+- [ ] Scripts de tracking (Google Ads, Facebook Pixel) injetados corretamente
+- [ ] Webhooks configurados e respondendo (se ativados)<br>#<h1>Sincronização de Repositórios</h1><br>O projeto utiliza dois repositórios sincronizados:
+- <code>origin</code>: <code>https://github.com/Glauberads/ital-nea-26-04.git</code> (Repositório principal de desenvolvimento)
+- <code>vercel</code>: <code>https://github.com/Glauberads/italinea-260426.git</code> (Repositório conectado ao deploy da Vercel)<br>Para garantir que o site ao vivo seja atualizado, realize o push para ambos:
+<pre>bash
+git push origin main
+git push vercel main
+</pre><br>
+---<br>
+<h1>SEÇÃO: MIGRAÇÃO SUPABASE</h1><br><h1>Como trocar o projeto Supabase</h1><br>1. Abra o arquivo <code>src/config/supabase.ts</code>
+2. Substitua <code>SUPABASE_URL</code> pela URL do novo projeto
+3. Substitua <code>SUPABASE_ANON_KEY</code> pela anon key do novo projeto
+4. No novo projeto Supabase, execute o SQL em <code>src/config/supabase-schema.sql</code>
+5. Pronto — nenhum outro arquivo precisa ser alterado.<br>#<h1>Onde encontrar URL e anon key</h1>
+Supabase Dashboard → seu projeto → Settings → API
+- Project URL = SUPABASE_URL
+- anon public = SUPABASE_ANON_KEY<br>
+---<br>
+    </div>
+</body>
+</html>

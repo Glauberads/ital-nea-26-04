@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import heroBg from "@/assets/hero-bg.jpeg";
 
 const HeroSection = () => {
   const [headline, setHeadline] = useState("Móveis Planejados Barueri e Região");
@@ -10,11 +9,12 @@ const HeroSection = () => {
   const [subtitle, setSubtitle] = useState(
     "Solicite seu orçamento de forma rápida e fácil!"
   );
+  const [bgUrl, setBgUrl] = useState<string>("");
 
   useEffect(() => {
     supabase
       .from("configuracoes")
-      .select("hero_headline, hero_headline_highlight, hero_subtitle")
+      .select("hero_headline, hero_headline_highlight, hero_subtitle, hero_bg_url")
       .eq("id", true)
       .single()
       .then(({ data }) => {
@@ -23,14 +23,15 @@ const HeroSection = () => {
         if (d.hero_headline) setHeadline(d.hero_headline);
         if (d.hero_headline_highlight) setHighlight(d.hero_headline_highlight);
         if (d.hero_subtitle) setSubtitle(d.hero_subtitle);
+        if (d.hero_bg_url) setBgUrl(d.hero_bg_url);
       });
   }, []);
 
   return (
     <section
-      className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center"
+      className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center bg-zinc-950"
       style={{
-        backgroundImage: `url(${heroBg})`,
+        backgroundImage: bgUrl ? `url(${bgUrl})` : "none",
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
@@ -68,4 +69,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-

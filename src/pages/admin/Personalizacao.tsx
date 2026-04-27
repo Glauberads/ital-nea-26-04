@@ -20,6 +20,7 @@ interface PersonalizacaoConfig {
   hero_headline: string;
   hero_headline_highlight: string;
   hero_subtitle: string;
+  hero_bg_url: string;
 }
 
 const defaultConfig: PersonalizacaoConfig = {
@@ -34,9 +35,10 @@ const defaultConfig: PersonalizacaoConfig = {
   hero_headline: "",
   hero_headline_highlight: "",
   hero_subtitle: "",
+  hero_bg_url: "",
 };
 
-type UploadSlot = "header" | "about" | "factory" | "metta" | "authority" | "footer";
+type UploadSlot = "header" | "about" | "factory" | "metta" | "authority" | "footer" | "hero_bg";
 
 const slotToField: Record<UploadSlot, keyof PersonalizacaoConfig> = {
   header: "header_logo_url",
@@ -45,6 +47,7 @@ const slotToField: Record<UploadSlot, keyof PersonalizacaoConfig> = {
   metta: "about_metta_logo_url",
   authority: "authority_logo_url",
   footer: "footer_logo_url",
+  hero_bg: "hero_bg_url",
 };
 
 const Personalizacao = () => {
@@ -74,6 +77,7 @@ const Personalizacao = () => {
           hero_headline: (data as any).hero_headline || "",
           hero_headline_highlight: (data as any).hero_headline_highlight || "",
           hero_subtitle: (data as any).hero_subtitle || "",
+          hero_bg_url: (data as any).hero_bg_url || "",
         });
       }
       setLoading(false);
@@ -119,6 +123,7 @@ const Personalizacao = () => {
         hero_headline: config.hero_headline,
         hero_headline_highlight: config.hero_headline_highlight,
         hero_subtitle: config.hero_subtitle,
+        hero_bg_url: config.hero_bg_url,
       } as any)
       .eq("id", true);
 
@@ -292,41 +297,54 @@ const Personalizacao = () => {
 
       <Card className="bg-zinc-900 border-zinc-800">
         <CardHeader>
-          <CardTitle className="text-zinc-100">Headline Principal (Hero)</CardTitle>
+          <CardTitle className="text-zinc-100 flex items-center gap-2">
+            <ImageIcon className="w-5 h-5" /> Banner Principal (Hero)
+          </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label className="text-zinc-300">Headline</Label>
-            <Input
-              value={config.hero_headline}
-              onChange={(e) =>
-                setConfig((c) => ({ ...c, hero_headline: e.target.value }))
-              }
-              className="bg-zinc-950 border-zinc-700 text-zinc-100"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label className="text-zinc-300">Destaque (segunda linha)</Label>
-            <Input
-              value={config.hero_headline_highlight}
-              onChange={(e) =>
-                setConfig((c) => ({
-                  ...c,
-                  hero_headline_highlight: e.target.value,
-                }))
-              }
-              className="bg-zinc-950 border-zinc-700 text-zinc-100"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label className="text-zinc-300">Subtítulo</Label>
-            <Input
-              value={config.hero_subtitle}
-              onChange={(e) =>
-                setConfig((c) => ({ ...c, hero_subtitle: e.target.value }))
-              }
-              className="bg-zinc-950 border-zinc-700 text-zinc-100"
-            />
+        <CardContent className="space-y-6">
+          <ImageUploader
+            slot="hero_bg"
+            label="Imagem de Fundo (Hero)"
+            url={config.hero_bg_url}
+            showWhiteToggle={false}
+          />
+
+          <div className="space-y-4 pt-4 border-t border-zinc-800">
+            <div className="space-y-2">
+              <Label className="text-zinc-300">Headline</Label>
+              <Input
+                value={config.hero_headline}
+                onChange={(e) =>
+                  setConfig((c) => ({ ...c, hero_headline: e.target.value }))
+                }
+                className="bg-zinc-950 border-zinc-700 text-zinc-100"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zinc-300">Highlight (Destaque em Amarelo)</Label>
+              <Input
+                value={config.hero_headline_highlight}
+                onChange={(e) =>
+                  setConfig((c) => ({
+                    ...c,
+                    hero_headline_highlight: e.target.value,
+                  }))
+                }
+                className="bg-zinc-950 border-zinc-700 text-zinc-100"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zinc-300">Subtítulo</Label>
+              <Input
+                value={config.hero_subtitle}
+                onChange={(e) =>
+                  setConfig((c) => ({ ...c, hero_subtitle: e.target.value }))
+                }
+                className="bg-zinc-950 border-zinc-700 text-zinc-100"
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
