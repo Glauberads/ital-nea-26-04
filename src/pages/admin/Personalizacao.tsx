@@ -13,6 +13,7 @@ interface PersonalizacaoConfig {
   about_logo_url: string;
   about_factory_url: string;
   about_metta_logo_url: string;
+  authority_logo_url: string;
   header_logo_white: boolean;
   about_logo_white: boolean;
   hero_headline: string;
@@ -25,6 +26,7 @@ const defaultConfig: PersonalizacaoConfig = {
   about_logo_url: "",
   about_factory_url: "",
   about_metta_logo_url: "",
+  authority_logo_url: "",
   header_logo_white: true,
   about_logo_white: false,
   hero_headline: "",
@@ -32,13 +34,14 @@ const defaultConfig: PersonalizacaoConfig = {
   hero_subtitle: "",
 };
 
-type UploadSlot = "header" | "about" | "factory" | "metta";
+type UploadSlot = "header" | "about" | "factory" | "metta" | "authority";
 
 const slotToField: Record<UploadSlot, keyof PersonalizacaoConfig> = {
   header: "header_logo_url",
   about: "about_logo_url",
   factory: "about_factory_url",
   metta: "about_metta_logo_url",
+  authority: "authority_logo_url",
 };
 
 const Personalizacao = () => {
@@ -61,6 +64,7 @@ const Personalizacao = () => {
           about_logo_url: (data as any).about_logo_url || "",
           about_factory_url: (data as any).about_factory_url || "",
           about_metta_logo_url: (data as any).about_metta_logo_url || "",
+          authority_logo_url: (data as any).authority_logo_url || "",
           header_logo_white: (data as any).header_logo_white ?? true,
           about_logo_white: (data as any).about_logo_white ?? true,
           hero_headline: (data as any).hero_headline || "",
@@ -104,6 +108,7 @@ const Personalizacao = () => {
         about_logo_url: config.about_logo_url,
         about_factory_url: config.about_factory_url,
         about_metta_logo_url: config.about_metta_logo_url,
+        authority_logo_url: config.authority_logo_url,
         header_logo_white: config.header_logo_white,
         about_logo_white: config.about_logo_white,
         hero_headline: config.hero_headline,
@@ -253,6 +258,22 @@ const Personalizacao = () => {
             slot="metta"
             label="Logo Metta Planejados"
             url={config.about_metta_logo_url}
+            showWhiteToggle={false}
+          />
+        </CardContent>
+      </Card>
+
+      <Card className="bg-zinc-900 border-zinc-800">
+        <CardHeader>
+          <CardTitle className="text-zinc-100 flex items-center gap-2">
+            <ImageIcon className="w-5 h-5" /> Seção Nossa Rede
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ImageUploader
+            slot="authority"
+            label="Logo Italínea (Nossa Rede)"
+            url={config.authority_logo_url}
             showWhiteToggle={false}
           />
         </CardContent>
