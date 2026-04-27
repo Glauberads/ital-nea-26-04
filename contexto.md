@@ -37,7 +37,7 @@ Landing page de alta conversão + painel administrativo para a **Italínea by Sa
 | **Opções do Formulário** | CRUD completo das opções de interesse exibidas no formulário da landing page. Dados na tabela `opcoes_formulario` |
 | **Redes Sociais** | Edição das URLs de Instagram, Facebook, YouTube, TikTok e Twitter exibidas no Footer (tabela `configuracoes`) |
 | **Depoimentos** | CRUD de depoimentos exibidos no carrossel da landing page (tabela `depoimentos` com campos nome, texto, data, ordem, público) |
-| **Personalização** | Upload das logos (Header, Sobre e Nossa Rede) e imagem aérea da fábrica (bucket `logos`), com toggle "exibir em branco" para logos específicas + edição de headline, highlight e subtítulo do Hero (tabela `configuracoes`) |
+| **Personalização** | Upload das logos (Header, Sobre, Nossa Rede e Rodapé) e imagem aérea da fábrica (bucket `logos`), com toggle "exibir em branco" para logos específicas + edição de headline, highlight e subtítulo do Hero (tabela `configuracoes`) |
 | **Sidebar** | Menu lateral dark mode premium (zinc-950 + destaques azul/dourado) com ícones lucide-react |
 
 ### Autenticação & Segurança
@@ -100,7 +100,7 @@ src/
 
 ## Integração Supabase
 - **Projeto:** `dxfbbjecztfeaiblelvt.supabase.co`
-- **Tabelas:** `leads`, `configuracoes` (incluindo campos dinâmicos `about_factory_url`, `about_metta_logo_url`, `authority_logo_url`), `user_roles`, `admins`, `galeria_midia`, `opcoes_formulario`, `opcoes_local`, `depoimentos`
+- **Tabelas:** `leads`, `configuracoes` (incluindo campos dinâmicos `about_factory_url`, `about_metta_logo_url`, `authority_logo_url`, `footer_logo_url`), `user_roles`, `admins`, `galeria_midia`, `opcoes_formulario`, `opcoes_local`, `depoimentos`
 - **Auth:** Email/senha com role-based access (função `is_admin()` security definer)
 - **RLS:** Ativa em todas as tabelas
 - **Storage Buckets:** `galeria` (imagens do showroom/projetos) e `logos` (logos do Header/Sobre/Rede e imagem da fábrica — público)

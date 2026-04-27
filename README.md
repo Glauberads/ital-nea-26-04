@@ -69,7 +69,7 @@ A aplicação estará disponível em `http://localhost:5173`.
 - ✅ **Opções do Formulário** — CRUD completo de opções de interesse (tabela `opcoes_formulario`)
 - ✅ **Redes Sociais** — Gestão das URLs de Instagram, Facebook, YouTube, TikTok e Twitter exibidas no Footer
 - ✅ **Depoimentos** — CRUD de depoimentos exibidos no carrossel da landing (tabela `depoimentos`)
-- ✅ **Personalização** — Gestão dinâmica de ativos de marca: upload de logos (Header, Sobre, Nossa Rede) e imagem da fábrica, com opção de exibir em branco e edição da headline/subtítulo do Hero (bucket `logos` + tabela `configuracoes`)
+- ✅ **Personalização** — Gestão dinâmica de ativos de marca: upload de logos (Header, Sobre, Nossa Rede, Rodapé) e imagem da fábrica, com opção de exibir em branco e edição da headline/subtítulo do Hero (bucket `logos` + tabela `configuracoes`)
 - ✅ Scripts de tracking injetados dinamicamente via tabela `configuracoes`
 
 ### Autenticação & Segurança
@@ -133,7 +133,7 @@ src/
 ## Integração Supabase
 
 - **Projeto:** `dxfbbjecztfeaiblelvt.supabase.co`
-- **Tabelas:** `leads`, `configuracoes`, `user_roles`, `admins`, `galeria_midia`, `opcoes_formulario`, `opcoes_local`, `depoimentos`
+- **Tabelas:** `leads`, `configuracoes` (incluindo campos de imagem dinâmicos), `user_roles`, `admins`, `galeria_midia`, `opcoes_formulario`, `opcoes_local`, `depoimentos`
 - **Storage Buckets:** `logos` (público — logos e ativos de marca), `galeria` (showroom e projetos)
 - **Auth:** Email/senha com proteção por role (função `is_admin()`)
 - **RLS:** Ativa em todas as tabelas

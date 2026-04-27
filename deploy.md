@@ -74,7 +74,7 @@ server {
 | Item | Detalhes |
 |---|---|
 | **Node.js** | 18+ (para build local) |
-| **Supabase** | Projeto configurado com as tabelas: `leads`, `configuracoes`, `user_roles`, `galeria_midia`, `opcoes_formulario`. **Nota:** A tabela `configuracoes` deve conter as colunas `about_factory_url`, `about_metta_logo_url` e `authority_logo_url`. |
+| **Supabase** | Projeto configurado com as tabelas: `leads`, `configuracoes`, `user_roles`, `galeria_midia`, `opcoes_formulario`. **Nota:** A tabela `configuracoes` deve conter as colunas `about_factory_url`, `about_metta_logo_url`, `authority_logo_url` e `footer_logo_url`. |
 | **Migrações** | Executar todos os arquivos SQL em `src/config/` e `supabase/migrations/` |
 | **Credenciais** | URL e anon key configuradas em `src/config/supabase.ts` **antes** do build |
 | **Storage** | Bucket de imagens criado no Supabase para a galeria de mídia |
